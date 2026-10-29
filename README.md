@@ -12,19 +12,6 @@ The dataset contains **30,000 customers** with 6 months of payment history, bill
 
 ---
 
-## Repository Structure
-
-```
-credit-card-default/
-│
-├── Credit_Card_Default.ipynb            # Main notebook (full pipeline)
-├── UCI_Credit_Card.csv                  # Dataset (download separately — see below)
-├── best_xgb_model.pkl                   # Saved XGBoost model
-├── best_rf_model.pkl                    # Saved Random Forest model
-├── best_lr_model.pkl                    # Saved Logistic Regression model
-├── scaler.pkl                           # Saved StandardScaler (required for inference)
-└── README.md
-```
 
 ---
 
@@ -38,22 +25,7 @@ credit-card-default/
 
 ---
 
-## Pipeline
 
-```
-Raw Data
-   │
-   ├── Data Cleaning          → Drop undocumented categories, fix PAY column encoding
-   ├── Feature Engineering    → AVG_UTIL_RATIO, AVG_PAY_RATIO, DELAY_TREND
-   ├── EDA                    → KDE plots, correlation heatmap, demographic analysis
-   ├── Encoding               → One-hot encode SEX, EDUCATION, MARRIAGE
-   ├── Train-Test Split       → 80/20 stratified split
-   ├── Standardization        → StandardScaler (fit on train only — no leakage)
-   ├── Model Training         → LR, Random Forest, XGBoost (class_weight='balanced')
-   ├── Threshold Optimization → Precision-Recall curve → best F1 threshold per model
-   ├── Hyperparameter Tuning  → GridSearchCV (LR) / RandomizedSearchCV (RF, XGBoost)
-   └── Evaluation             → Confusion matrix, ROC-AUC, PR-AUC, learning curves, feature importance
-```
 
 ---
 
